@@ -14,7 +14,6 @@ clang++
 Apple LLVM version 8.1.0 (clang-802.0.42)
 
 # 作る予定のもの
-* wavファイル書き出し
 * wavファイル読み出しと書き出し
 * ステレオ化
 * 擬似ステレオ化
@@ -38,3 +37,4 @@ Apple LLVM version 8.1.0 (clang-802.0.42)
 # 作ったもの(実績)
 * [リポジトリ](https://github.com/Akio-m/prac-dsp)を作った
 * wavファイル読み出し
+* wavファイル書き出し
