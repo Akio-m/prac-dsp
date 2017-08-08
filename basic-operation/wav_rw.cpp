@@ -76,6 +76,7 @@ int main(int argc, char *argv[]){
         exit(-2);
     }
 
+    ofs.write( (char*)&header , sizeof( header ) );
     vector<short>::iterator lit = leftNewData.begin();
     //vector<short>::iterator rit = rightNewData.begin();
 
@@ -109,8 +110,6 @@ int main(int argc, char *argv[]){
     }
 */
     ofs.close();
-
     return 0;
 
 }
-
