@@ -42,7 +42,6 @@ int main(int argc, char *argv[]){
     ifs.read( (char*)&header , sizeof( header ) );
 
     vector<short> leftData;
-    //vector<short> rightData;
 
     short buf;
     do {
@@ -50,15 +49,6 @@ int main(int argc, char *argv[]){
         leftData.push_back( buf );
     } while ( !ifs.eof() );
     cout << "end" << endl;
-/*
-    short buf[2];
-
-    do {
-        ifs.read( (char*)buf, sizeof( buf[0] )*2 );
-        leftData.push_back( buf[0] );
-        rightData.push_back( buf[1] );
-    } while ( !ifs.eof() );
-*/
     ifs.close();
 
     // 加工するならここで
@@ -66,7 +56,6 @@ int main(int argc, char *argv[]){
     //
     
     vector<short> leftNewData = leftData;
-    //vector<short> rightNewData = rightData;
 
     ofstream ofs;
     ofs.open( argv[2], ios::out | ios::binary | ios::trunc );
@@ -78,7 +67,6 @@ int main(int argc, char *argv[]){
 
     ofs.write( (char*)&header , sizeof( header ) );
     vector<short>::iterator lit = leftNewData.begin();
-    //vector<short>::iterator rit = rightNewData.begin();
 
     while ( lit != leftNewData.end() ){
         if ( lit != leftNewData.end() ){
@@ -90,25 +78,6 @@ int main(int argc, char *argv[]){
 
         ofs.write( (char*)&buf, sizeof( buf ) );
     }
-/*
-    while ( lit != leftNewData.end() && rit != rightNewData.end() ){
-        if ( lit != leftNewData.end() ){
-            buf[0] = *lit;
-            lit++;
-        }else{
-            buf[0] = 0;
-        }
-        
-        if ( rit != rightNewData.end() ){
-            buf[1] = *rit;
-            rit++;
-        }else{
-            buf[1] = 0;
-        }
-
-        ofs.write( (char*)buf, sizeof( buf[0] )*2 );
-    }
-*/
     ofs.close();
     return 0;
 
